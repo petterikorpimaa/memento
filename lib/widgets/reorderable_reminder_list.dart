@@ -660,7 +660,8 @@ class _ReorderableReminderListState extends State<ReorderableReminderList>
         onExpandTap: () => widget.onExpandTap(id),
         onExpandComplete: () => widget.onExpandComplete(id),
         onDeleteTap: () => widget.onToggleMarked(id),
-        onDragStart: (LongPressStartDetails d) => _startDrag(displayIndex, id, d),
+        onDragStart: (LongPressStartDetails d) =>
+            _startDrag(displayIndex, id, d),
         onDragUpdate: _updateDrag,
         onDragEnd: _endDrag,
         onDragCancel: _cancelDrag,

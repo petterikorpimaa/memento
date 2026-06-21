@@ -29,19 +29,22 @@ void main() {
       bottomInset: bottomInset,
     );
 
-    test('widens past the list width by the tile\'s "closer" scale, centred', () {
-      final Rect rect = target();
-      // List content width is maxWidth - 2*hPadding = 360; scaled by
-      // expandedScale and centred on maxWidth/2 = 200.
-      final double scaledHalfWidth =
-          (constraints.maxWidth - 2 * hPadding) *
-          ReminderTile.expandedScale /
-          2;
-      expect(rect.left, closeTo(200 - scaledHalfWidth, 1e-9));
-      expect(rect.right, closeTo(200 + scaledHalfWidth, 1e-9));
-      // The scaled width exceeds the plain list content width.
-      expect(rect.width, greaterThan(constraints.maxWidth - 2 * hPadding));
-    });
+    test(
+      'widens past the list width by the tile\'s "closer" scale, centred',
+      () {
+        final Rect rect = target();
+        // List content width is maxWidth - 2*hPadding = 360; scaled by
+        // expandedScale and centred on maxWidth/2 = 200.
+        final double scaledHalfWidth =
+            (constraints.maxWidth - 2 * hPadding) *
+            ReminderTile.expandedScale /
+            2;
+        expect(rect.left, closeTo(200 - scaledHalfWidth, 1e-9));
+        expect(rect.right, closeTo(200 + scaledHalfWidth, 1e-9));
+        // The scaled width exceeds the plain list content width.
+        expect(rect.width, greaterThan(constraints.maxWidth - 2 * hPadding));
+      },
+    );
 
     test('subtracts the bottom margin and home-indicator inset', () {
       final Rect rect = target();

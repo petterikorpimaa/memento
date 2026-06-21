@@ -12,10 +12,10 @@ void main() {
     test('a still (sub-threshold) drag stays flat', () {
       expect(DragTilt.target(Offset.zero), (0.0, 0.0));
       // Just below the still threshold still reads as flat.
-      expect(
-        DragTilt.target(const Offset(DragTilt.minSpeedForTilt - 1, 0)),
-        (0.0, 0.0),
-      );
+      expect(DragTilt.target(const Offset(DragTilt.minSpeedForTilt - 1, 0)), (
+        0.0,
+        0.0,
+      ));
     });
 
     test('dragging down tips the leading (bottom) edge away: +X tilt', () {

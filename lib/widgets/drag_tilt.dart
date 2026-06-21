@@ -38,7 +38,8 @@ class DragTilt {
   static (double x, double y) target(Offset velocity) {
     final double speed = velocity.distance;
     if (speed <= minSpeedForTilt) return (0, 0);
-    final double intensity = speed.clamp(0.0, speedForMaxTilt) / speedForMaxTilt;
+    final double intensity =
+        speed.clamp(0.0, speedForMaxTilt) / speedForMaxTilt;
     final double x = (velocity.dy / speed) * intensity * maxTiltX;
     final double y = -(velocity.dx / speed) * intensity * maxTiltY;
     return (x, y);

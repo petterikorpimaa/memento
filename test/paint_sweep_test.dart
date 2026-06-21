@@ -42,12 +42,7 @@ void main() {
     test('add: false removes the swept ids from the pre-gesture set', () {
       // Everything starts enabled; sweeping 0..2 turns those three off.
       expect(
-        sweep(
-          start: 0,
-          current: 2,
-          add: false,
-          pre: <int>{3, 1, 4, 6, 9},
-        ),
+        sweep(start: 0, current: 2, add: false, pre: <int>{3, 1, 4, 6, 9}),
         <int>{6, 9},
       );
     });
@@ -60,17 +55,25 @@ void main() {
         add: true,
         preGestureSet: const <int>{},
       );
-      expect(gesture.applied(currentIndex: 4, order: order), <int>{3, 1, 4, 6, 9});
+      expect(gesture.applied(currentIndex: 4, order: order), <int>{
+        3,
+        1,
+        4,
+        6,
+        9,
+      });
       expect(gesture.applied(currentIndex: 2, order: order), <int>{3, 1, 4});
     });
 
     test('ids outside the range keep their pre-gesture membership', () {
       // id 9 (index 4) is enabled before the gesture and lies outside the swept
       // 0..2 range, so it stays on even though the sweep adds.
-      expect(
-        sweep(start: 0, current: 2, add: true, pre: <int>{9}),
-        <int>{3, 1, 4, 9},
-      );
+      expect(sweep(start: 0, current: 2, add: true, pre: <int>{9}), <int>{
+        3,
+        1,
+        4,
+        9,
+      });
     });
 
     test('does not mutate the supplied pre-gesture set', () {

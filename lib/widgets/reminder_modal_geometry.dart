@@ -28,9 +28,7 @@ class ModalGeometry {
     required double bottomInset,
   }) {
     final double scaledHalfWidth =
-        (constraints.maxWidth - 2 * hPadding) *
-        ReminderTile.expandedScale /
-        2;
+        (constraints.maxWidth - 2 * hPadding) * ReminderTile.expandedScale / 2;
     final double centerX = constraints.maxWidth / 2;
     final double topLift = (ReminderTile.expandedScale - 1) / 2 * sourceHeight;
     return Rect.fromLTRB(
